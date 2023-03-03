@@ -1,20 +1,44 @@
-<!<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Kelompok">
+    <title>BookStudio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <nav>
-    <ul>
-        <li><a href="?menu=home">Home</a></li>
-        <li><a href="?menu=genre">Genre</a></li>
-        <li><a href="?menu=book">Book</a></li>
-    </ul>
-    </nav>
+<section class="backg text-white">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-4">
+                <h2>Book List</h2>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+</section>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="?menu=home"><h5>Home</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?menu=genre"><h5>Genre</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?menu=book"><h5>Book</h5></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <main>
     <?php
     $navigation=filter_input(INPUT_GET,"menu");
