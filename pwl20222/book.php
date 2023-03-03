@@ -15,8 +15,12 @@ $link =null;
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">NAME</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">Publish_year</th>
+                    <th scope="col">Nama_genre</th>
                 </tr>
                 </thead>
                 <tbody>
