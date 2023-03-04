@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Perpustakaan Nasional</title>
+    <title>Perpustakaan Lokal</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -83,7 +83,7 @@
 </style>
 <body>
 <header>
-    <h1 class="text-center">Perpustakaan Nasional</h1>
+    <h1 class="text-center">Perpustakaan Lokal</h1>
 </header>
 <main>
     <section>
@@ -130,7 +130,7 @@
 <footer>
     <br>
     <br>
-    <p class="text-center"><marquee behavior="sliding" direction= "right">&copy; 2023 Perpustakaan Nasional</marquee></p>
+    <p class="text-center"><marquee behavior="sliding" direction= "right">&copy; 2023 Perpustakaan Lokal</marquee></p>
 </footer>
 </body>
 </html>
