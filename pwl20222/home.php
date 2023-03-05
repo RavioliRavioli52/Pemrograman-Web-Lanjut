@@ -99,13 +99,13 @@
             <input type="radio" name="radio-btn" id="radio2">
             <input type="radio" name="radio-btn" id="radio3">
             <div class="slide first">
-                <img src="img1.jpg">
+                <img src="img/img1.jpg">
             </div>
             <div class="slide second">
-                <img src="img2.jpg">
+                <img src="img/img2.jpg">
             </div>
             <div class="slide">
-                <img src="img3.jpg">
+                <img src="img/img3.jpg">
             </div>
         </div>
     </div>
