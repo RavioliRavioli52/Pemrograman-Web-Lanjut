@@ -89,8 +89,8 @@
     <section>
         <br>
         <br>
-        <h2 class="text-center">Selamat Datang di Perpustakaan Nasional</h2>
-        <p class="text-center">Perpustakaan Nasional menyediakan layanan peminjaman buku secara online dengan mudah dan cepat. Dengan koleksi buku yang lengkap dan up-to-date, kami siap memenuhi kebutuhan literasi anda.</p>
+        <h2 class="text-center">Selamat Datang di Perpustakaan Lokal</h2>
+        <p class="text-center">Perpustakaan Lokal menyediakan layanan peminjaman buku secara online dengan mudah dan cepat. Dengan koleksi buku yang lengkap dan up-to-date, kami siap memenuhi kebutuhan literasi anda.</p>
         <p class="text-center">"Buku adalah jendela masa depan"</p>
     </section>
     <div class="slider">
