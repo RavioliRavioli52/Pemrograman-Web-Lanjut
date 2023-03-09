@@ -1,5 +1,6 @@
 <?php
-include_once 'util_function.php'
+include_once 'db_utility/util_function.php';
+include_once 'db_utility/genre_function.php';
 ?>
 
 <!<!doctype html>
@@ -12,6 +13,7 @@ include_once 'util_function.php'
         <title>Perpustakaan Nasional</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
+        <script src="js/genre_index.js"></script>
     </head>
     <body>
         <div class="container-fluid" >
@@ -42,16 +44,19 @@ include_once 'util_function.php'
                 $navigation = filter_input(INPUT_GET, 'menu');
                 switch ($navigation){
                     case 'home';
-                        include_once 'home.php';
+                        include_once 'pages/home.php';
                         break;
                     case'genre';
-                        include_once 'genre.php';
+                        include_once 'pages/genre.php';
                         break;
                     case'book';
-                        include_once 'book.php';
+                        include_once 'pages/book.php';
+                        break;
+                    case 'genre_update':
+                        include_once 'pages/genre_edit.php';
                         break;
                     default:
-                        include_once 'home.php';
+                        include_once 'pages/home.php';
                         break;
                 }
                 ?>
