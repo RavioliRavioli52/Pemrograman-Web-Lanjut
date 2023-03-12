@@ -25,7 +25,7 @@ include_once 'db_utility/genre_function.php';
                 <div class="collapse navbar-collapse mr-auto" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="?menu=home">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="?menu=home">Home <span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?menu=genre">Genre</a>
