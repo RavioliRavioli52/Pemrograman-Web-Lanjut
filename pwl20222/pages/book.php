@@ -1,4 +1,17 @@
 <?php
+$deleteCommand = filter_input(INPUT_GET, 'com');
+if(isset($deleteCommand) && $deleteCommand == 'del'){
+    $isbn = filter_input(INPUT_GET, 'isbn');
+    $result = deleteBookToDb($isbn);
+    if($result){
+        echo '<div> Data Successfully removed</div>';
+    } else {
+        echo '<div>Failed to remove data</div>';
+    }
+}
+
+
+
 $submitPressed = filter_input(INPUT_POST, 'btnSave');
 if (isset($submitPressed)){
     $isbn = filter_input(INPUT_POST, 'txtisbn');
@@ -11,24 +24,14 @@ if (isset($submitPressed)){
     if(trim($isbn) == '' || trim($title) == '' || trim($author) == '' || trim($publisher) == '' || trim($publisheryear) == '' || trim($genre == ''  || trim($description == ''))){
         echo '<div>Please provide with a  valid name </div>';
     } else{
-        $link = createMySQLConnection();
-        $link->beginTransaction();
-        $query = 'INSERT INTO book(isbn, title, author, publisher, publisher_year, short_description, genre_id) VALUES(?, ?, ?, ?, ?, ?, ?)';
-        $stmt = $link->prepare($query);
-        $stmt->bindParam(1,$isbn, PDO::PARAM_STR);
-        $stmt->bindParam(2,$title, PDO::PARAM_STR);
-        $stmt->bindParam(3,$author, PDO::PARAM_STR);
-        $stmt->bindParam(4,$publisher, PDO::PARAM_STR);
-        $stmt->bindParam(5,$publisheryear, PDO::PARAM_STR);
-        $stmt->bindParam(6,$description, PDO::PARAM_STR);
-        $stmt->bindParam(7,$genre, PDO::PARAM_STR);
-        if($stmt->execute()){
-            $link->commit();
+        $results = addNewBook($isbn, $title, $author, $publisher, $publisheryear, $description, $genre);
+        if($results){
+            echo '<div>Data successfully added </div>';
         } else{
-            $link->rollBack();
+            echo '<div>Failed to add data</div>';
         }
     }
-    $link = null;
+
 }
 ?>
 
@@ -70,16 +73,12 @@ if (isset($submitPressed)){
         <th scope="col">publisher</th>
         <th scope="col">publisher year</th>
         <th scope="col">genre name</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
     <?php
-    $link = createMySQLConnection();
-    $query = 'SELECT book.isbn, book.title, book.author, book.publisher, book.publisher_year, genre.name  FROM book INNER JOIN genre ON genre.id = book.genre_id';
-    $stmt = $link->prepare($query);
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-    $link = null;
+    $result = fetchBookFromDb();
 
     foreach ($result as $book){
         echo '<tr scope="row">';
@@ -89,6 +88,7 @@ if (isset($submitPressed)){
         echo '<td>' . $book['publisher'] . '</td>';
         echo '<td>' . $book['publisher_year'] . '</td>';
         echo '<td>' . $book['name'] . '</td>';
+        echo '<td><button  onclick="editBook('.$book['isbn'].')" class="btn btn-warning">Update Data</button><button  onclick="deleteBook('.$book['isbn'].')" class="btn btn-danger">Delete Data</button></td>';
         echo '</tr>';
     }
     ?>
