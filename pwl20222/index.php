@@ -1,8 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['registered_user'])){
+if (!isset($_SESSION['registered_user'])) {
     $_SESSION['registered_user'] = false;
-
 }
 include_once 'db_utility/util_function.php';
 include_once 'db_utility/genre_function.php';
@@ -23,33 +22,36 @@ include_once 'db_utility/user_function.php';
         <script src="js/book_index.js"></script>
     </head>
     <body>
-        <div class="container-fluid" >
-            <?php
-            if ($_SESSION['registered_user']){
-            ?>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Perpustakaan Nasional</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="?menu=home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?menu=genre">Genre</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?menu=book">Book</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="?menu=logout">Log Out</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+    <div class="container-fluid" >
+        <?php
+        if ($_SESSION['registered_user']) {
+        ?>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Perpustakaan Nasional</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mr-auto" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="?menu=home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?menu=genre">Genre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?menu=book">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?menu=login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?menu=logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
         <div class="container">
             <main>
@@ -64,6 +66,9 @@ include_once 'db_utility/user_function.php';
                         break;
                     case'book';
                         include_once 'pages/book.php';
+                        break;
+                    case 'login':
+                        include_once 'pages/login.php';
                         break;
                     case 'genre_update':
                         include_once 'pages/genre_edit.php';
@@ -82,14 +87,14 @@ include_once 'db_utility/user_function.php';
                 }
                 ?>
             </main>
-            <?php
-            } else {
-                include_once 'pages/login.php';
-            }
-            ?>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    </body>
+    <?php
+    } else {
+      include_once 'pages/login.php';
+    }
+    ?>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+</body>
 </html>
 
